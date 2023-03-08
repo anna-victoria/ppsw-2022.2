@@ -1,6 +1,7 @@
 package br.upe.ppsw.jabberpoint.apresentacao.model;
 
 import java.awt.Graphics;
+
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -14,6 +15,7 @@ import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import br.upe.ppsw.jabberpoint.apresentacao.view.SlideViewerFrame;
 
 import br.upe.ppsw.jabberpoint.apresentacao.view.Style;
 
@@ -100,7 +102,7 @@ public class TextItem extends SlideItem {
     FontRenderContext frc = g2d.getFontRenderContext();
     LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
 
-    float wrappingWidth = (Slide.WIDTH - s.indent) * scale;
+    float wrappingWidth = (SlideViewerFrame.WIDTH - s.indent) * scale;
 
     while (measurer.getPosition() < getText().length()) {
       TextLayout layout = measurer.nextLayout(wrappingWidth);

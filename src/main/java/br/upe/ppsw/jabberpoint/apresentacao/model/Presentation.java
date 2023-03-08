@@ -7,46 +7,44 @@ import br.upe.ppsw.jabberpoint.apresentacao.view.SlideViewerComponent;
 public class Presentation {
 
   private String title;
-  private ArrayList<Slide> showList = null;
-  private SlideViewerComponent slideViewComponent = null;
-  private int currentSlideNumber = 0;
+  private ArrayList<Slide> slides = null;
+  //private SlideViewerComponent slideViewComponent = null; //TODO: Tirar
+  private int currentSlideNumber = 0; 
+  
 
   public Presentation() {
-    slideViewComponent = null;
     clear();
   }
 
-  public Presentation(SlideViewerComponent slideViewerComponent) {
-    this.slideViewComponent = slideViewerComponent;
-    clear();
-  }
-
-  public int getSize() {
-    return showList.size();
+  public int getSizeSize() {
+    return this.slides.size();
   }
 
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(String nt) {
-    title = nt;
+  public void setTitle(String newTitle) {
+    title = newTitle;
   }
-
-  public void setShowView(SlideViewerComponent slideViewerComponent) {
-    this.slideViewComponent = slideViewerComponent;
+  
+  public Slide getSlide(int number) {
+	  Slide slide = null;
+	  if (number >= 0 && number <= getSlidesSize()) {
+		  slide.append(this.slides.get(number));
+	  }
   }
 
   public int getSlideNumber() {
-    return currentSlideNumber;
+    return getSlide.(this.currentSlideNumber);
   }
 
-  public void setSlideNumber(int number) {
-    currentSlideNumber = number;
-    if (slideViewComponent != null) {
-      slideViewComponent.update(this, getCurrentSlide());
-    }
-  }
+  //public void setSlideNumber(int number) {
+   // currentSlideNumber = number;
+   // if (slideViewComponent != null) {
+   //   slideViewComponent.update(this, getCurrentSlide());
+   // }
+  //}
 
   public void prevSlide() {
     if (currentSlideNumber > 0) {
@@ -65,16 +63,12 @@ public class Presentation {
     setSlideNumber(-1);
   }
 
-  public void append(Slide slide) {
-    showList.add(slide);
-  }
-
-  public Slide getSlide(int number) {
-    if (number < 0 || number >= getSize()) {
-      return null;
-    }
-    return (Slide) showList.get(number);
-  }
+	/*
+	 * public void append(Slide slide) { showList.add(slide); }
+	 * 
+	 * public Slide getSlide(int number) { if (number < 0 || number >= getSize()) {
+	 * return null; } return (Slide) showList.get(number); }
+	 */
 
   public Slide getCurrentSlide() {
     return getSlide(currentSlideNumber);

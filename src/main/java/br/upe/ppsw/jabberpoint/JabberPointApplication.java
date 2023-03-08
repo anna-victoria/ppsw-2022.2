@@ -7,8 +7,8 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import br.upe.ppsw.jabberpoint.apresentacao.Accessor;
+import br.upe.ppsw.jabberpoint.apresentacao.controller.XMLAccessor;
 import br.upe.ppsw.jabberpoint.apresentacao.model.Presentation;
-import br.upe.ppsw.jabberpoint.apresentacao.model.XMLAccessor;
 import br.upe.ppsw.jabberpoint.apresentacao.view.SlideViewerFrame;
 import br.upe.ppsw.jabberpoint.apresentacao.view.Style;
 
@@ -18,6 +18,10 @@ public class JabberPointApplication implements CommandLineRunner {
   protected static final String IOERR = "IO Error: ";
   protected static final String JABERR = "Jabberpoint Error ";
   protected static final String JABVERSION = "Jabberpoint 1.6 -";
+  
+  public final static int WIDTH = 1200;
+  public final static int HEIGHT = 800;
+
 
   public static void main(String[] argv) {
     SpringApplicationBuilder builder = new SpringApplicationBuilder(JabberPointApplication.class);

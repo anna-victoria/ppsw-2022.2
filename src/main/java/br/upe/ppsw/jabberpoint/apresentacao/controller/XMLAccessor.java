@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.apresentacao.model;
+package br.upe.ppsw.jabberpoint.apresentacao.controller;
 
 import java.io.File;
 import java.io.FileWriter;
