@@ -14,6 +14,9 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import br.upe.ppsw.jabberpoint.model.BitmapItem;
+import br.upe.ppsw.jabberpoint.view.TextItem;
+
 public class XMLAccessor extends Accessor {
 
   protected static final String DEFAULT_API_TO_USE = "dom";

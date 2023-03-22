@@ -2,12 +2,14 @@ package br.upe.ppsw.jabberpoint.apresentacao;
 
 import java.io.IOException;
 
+import br.upe.ppsw.jabberpoint.view.DemoPresentation;
+
 public abstract class Accessor {
 
   public static final String DEMO_NAME = "Apresentação de Demonstração";
   public static final String DEFAULT_EXTENSION = ".xml";
 
-  public static Accessor getDemoAccessor() {
+  public static DemoPresentation getDemoAccessor() {
     return new DemoPresentation();
   }
 
