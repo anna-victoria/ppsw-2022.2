@@ -74,7 +74,7 @@ public class TextItem extends SlideItem {
     }
 
     List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-    Point pen = new Point(x + (int) (myStyle.indent * scale), y + (int) (myStyle.leading * scale));
+    Point pen = new Point(x + (int) (myStyle.getIndent() * scale), y + (int) (myStyle.getLeading() * scale));
 
     Graphics2D g2d = (Graphics2D) g;
     g2d.setColor(myStyle.getColor());
@@ -100,7 +100,7 @@ public class TextItem extends SlideItem {
     FontRenderContext frc = g2d.getFontRenderContext();
     LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
 
-    float wrappingWidth = (1200 - s.indent) * scale;
+    float wrappingWidth = (1200 - s.getIndent()) * scale;
 
     while (measurer.getPosition() < getText().length()) {
       TextLayout layout = measurer.nextLayout(wrappingWidth);
