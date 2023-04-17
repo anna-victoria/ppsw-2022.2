@@ -1,4 +1,4 @@
-package br.upe.ppsw.jabberpoint.apresentacao;
+package br.upe.ppsw.jabberpoint.view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,11 +8,11 @@ public class Style {
   private static Style[] styles;
 
   private static final String FONTNAME = "Helvetica";
-  int indent;
-  Color color;
+  public int indent; //TODO: get
+  public Color color; //TODO: get
   Font font;
   int fontSize;
-  int leading;
+  public int leading; //TODO: get
 
   public static void createStyles() {
     styles = new Style[5];
