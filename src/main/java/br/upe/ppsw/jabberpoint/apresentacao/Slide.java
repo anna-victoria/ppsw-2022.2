@@ -1,8 +1,4 @@
 package br.upe.ppsw.jabberpoint.apresentacao;
-
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.image.ImageObserver;
 import java.util.Vector;
 
 public class Slide {
@@ -17,20 +13,24 @@ public class Slide {
     items = new Vector<SlideItem>();
   }
 
-  public void append(SlideItem anItem) {
+  public void appendSlideItem(SlideItem anItem) {
     items.addElement(anItem);
   }
 
-  public String getTitle() {
+  public String getTitleText() {
     return title.getText();
   }
+  
+  public TextItem getTitle() {
+		return this.title;
+	}
 
   public void setTitle(String newTitle) {
     title = new TextItem(0, newTitle);
   }
 
-  public void append(int level, String message) {
-    append(new TextItem(level, message));
+  public void appendTextItem(int level, String message) {
+    appendSlideItem(new TextItem(level, message));
   }
 
   public SlideItem getSlideItem(int number) {
@@ -45,31 +45,4 @@ public class Slide {
     return items.size();
   }
 
-  public void draw(Graphics g, Rectangle area, ImageObserver view) {
-    float scale = getScale(area);
-
-    int y = area.y;
-
-    SlideItem slideItem = this.title;
-    Style style = Style.getStyle(slideItem.getLevel());
-    slideItem.draw(area.x, y, scale, g, style, view);
-
-    y += slideItem.getBoundingBox(g, view, scale, style).height;
-
-    for (int number = 0; number < getSize(); number++) {
-      slideItem = (SlideItem) getSlideItems().elementAt(number);
-
-      style = Style.getStyle(slideItem.getLevel());
-      slideItem.draw(area.x, y, scale, g, style, view);
-
-      y += slideItem.getBoundingBox(g, view, scale, style).height;
-    }
-  }
-
-  private float getScale(Rectangle area) {
-    return Math.min(((float) area.width) / ((float) 1200),
-        ((float) area.height) / ((float) 800));
-    
-    //CHANGE: Mudei a dimensão já para o int pra ficar mais fácil
-  }
 }

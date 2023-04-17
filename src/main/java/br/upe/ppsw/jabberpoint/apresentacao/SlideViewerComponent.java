@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.ImageObserver;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -62,7 +64,35 @@ public class SlideViewerComponent extends JComponent {
 
     Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
 
-    slide.draw(g, area, this);
+    slideDraw(g, area, this);
+  }
+  
+
+    public void slideDraw(Graphics g, Rectangle area, ImageObserver view) {
+		float scale = getScale(area);
+
+		int y = area.y;
+
+		SlideItem slideItem = slide.getTitle();
+		Style style = Style.getStyle(slideItem.getLevel());
+		slideItem.draw(area.x, y, scale, g, style, view);
+
+		y += slideItem.getBoundingBox(g, view, scale, style).height;
+
+		for (int number = 0; number < slide.getSize(); number++) {
+			slideItem = (SlideItem) slide.getSlideItems().elementAt(number);
+
+			style = Style.getStyle(slideItem.getLevel());
+			slideItem.draw(area.x, y, scale, g, style, view);
+
+			y += slideItem.getBoundingBox(g, view, scale, style).height;
+		}
+	}
+
+    private float getScale(Rectangle area) {
+      return Math.min(((float) area.width) / ((float) 1200), ((float) area.height) / ((float) 800));
+      
+      //CHANGE: Mudei a dimensão já para o int pra ficar mais fácil
+    }
   }
 
-}
