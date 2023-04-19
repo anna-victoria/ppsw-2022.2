@@ -2,24 +2,22 @@ package br.upe.ppsw.jabberpoint.model;
 
 import java.util.ArrayList;
 
-import br.upe.ppsw.jabberpoint.view.SlideViewerComponent;
-
 public class Presentation {
 
   private String title;
   private ArrayList<Slide> showList = null;
-  private SlideViewerComponent slideViewComponent = null;
+  //private SlideViewerComponent slideViewComponent = null;
   private int currentSlideNumber = 0;
 
   public Presentation() {
-    slideViewComponent = null;
-    clear();
+  //  slideViewComponent = null;
+  clear();
   }
 
-  public Presentation(SlideViewerComponent slideViewerComponent) {
-    this.slideViewComponent = slideViewerComponent;
-    clear();
-  }
+	/*
+	 * public Presentation(SlideViewerComponent slideViewerComponent) {
+	 * this.slideViewComponent = slideViewerComponent; clear(); }
+	 */
 
   public int getSize() {
     return showList.size();
@@ -33,9 +31,10 @@ public class Presentation {
     title = nt;
   }
 
-  public void setShowView(SlideViewerComponent slideViewerComponent) {
-    this.slideViewComponent = slideViewerComponent;
-  }
+	/*
+	 * public void setShowView(SlideViewerComponent slideViewerComponent) {
+	 * this.slideViewComponent = slideViewerComponent; }
+	 */
 
   public int getSlideNumber() {
     return currentSlideNumber;
@@ -43,9 +42,10 @@ public class Presentation {
 
   public void setSlideNumber(int number) {
     currentSlideNumber = number;
-    if (slideViewComponent != null) {
-      slideViewComponent.update(this, getCurrentSlide());
-    }
+	/*
+	 * if (slideViewComponent != null) { slideViewComponent.update(this,
+	 * getCurrentSlide()); }
+	 */
   }
 
   public void prevSlide() {
@@ -80,7 +80,7 @@ public class Presentation {
     return getSlide(currentSlideNumber);
   }
 
-  public void exit(int n) {
-    System.exit(n);
-  }
+	/*
+	 * public void exit(int n) { System.exit(n); }
+	 */
 }

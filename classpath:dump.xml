@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE presentation SYSTEM "jabberpoint.dtd">
+<presentation>
+<showtitle>Apresentação de Demonstração</showtitle>
+<slide>
+<title>TextItem[0,JabberPoint]</title>
+<item kind="text" level="1">Ferramenta de Apresentação de Slides</item>
+<item kind="text" level="2">Copyright (c) 1996-now: Ian Darwin</item>
+<item kind="text" level="2">Copyright (c) 2021-now:</item>
+<item kind="text" level="2">Helaine Barreiros</item>
+<item kind="text" level="4">JabberPoint execução de demonstração sem arquivos persistidos</item>
+<item kind="text" level="4">exibição de apresentação com dados apenas em memória</item>
+<item kind="text" level="1">Navegação:</item>
+<item kind="text" level="3">Próximo slide: Setinha pra direita (->) ou Enter</item>
+<item kind="text" level="3">Slide Anterior: Setinha pra esquerda (<-) ou up-arrow</item>
+<item kind="text" level="3">Parar: q ou Q</item>
+</slide>
+<slide>
+<title>TextItem[0,Demonstração dos níveis e estilos de uma apresentação]</title>
+<item kind="text" level="1">Nível 1</item>
+<item kind="text" level="2">Nível 2</item>
+<item kind="text" level="1">Novamente um item de Nível 1</item>
+<item kind="text" level="1">Nível 1 tem Estilo número 1</item>
+<item kind="text" level="2">Nível 2 tem Estilo número 2</item>
+<item kind="text" level="3">Este é um ítem de Nível 3</item>
+<item kind="text" level="4">E este é um ítem de Nível 4</item>
+</slide>
+<slide>
+<title>TextItem[0,Terceiro Slide]</title>
+<item kind="text" level="1">Para abrir uma nova apresentação,</item>
+<item kind="text" level="2">utilize o menu File->Open.</item>
+<item kind="text" level="1"> </item>
+<item kind="text" level="1">Fim da Apresentação</item>
+<item kind="image" level="1">/home/anna/Documentos/Projetos/ppsw-2022.2/target/classes/JabberPoint.jpg</item>
+</slide>
+</presentation>

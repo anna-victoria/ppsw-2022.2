@@ -15,6 +15,7 @@ import br.upe.ppsw.jabberpoint.model.Accessor;
 import br.upe.ppsw.jabberpoint.model.Presentation;
 import br.upe.ppsw.jabberpoint.model.XMLAccessor;
 import br.upe.ppsw.jabberpoint.view.AboutBox;
+import br.upe.ppsw.jabberpoint.view.SlideViewerComponent;
 
 public class MenuController extends MenuBar {
 
@@ -22,6 +23,8 @@ public class MenuController extends MenuBar {
 
   private Frame parent;
   private Presentation presentation;
+  
+  private SlideViewerComponent slideViewerComponent;
 
   protected static final String ABOUT = "Sobre";
   protected static final String FILE = "Arquivo";
@@ -43,9 +46,11 @@ public class MenuController extends MenuBar {
   protected static final String LOADERR = "Erro ao carregar";
   protected static final String SAVEERR = "Erro ao salvar";
 
-  public MenuController(Frame frame, Presentation pres) {
+  public MenuController(Frame frame, Presentation pres, SlideViewerComponent slideViewerComponent) {
     parent = frame;
     presentation = pres;
+    
+    this.slideViewerComponent = slideViewerComponent;
 
     MenuItem menuItem;
 
@@ -96,7 +101,8 @@ public class MenuController extends MenuBar {
 
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        presentation.exit(0);
+			/* presentation.exit(0); */
+    	  System.exit(0);
       }
     });
 
@@ -108,6 +114,8 @@ public class MenuController extends MenuBar {
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
         presentation.nextSlide();
+        slideViewerComponent.update();
+
       }
     });
 
@@ -116,6 +124,8 @@ public class MenuController extends MenuBar {
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
         presentation.prevSlide();
+        slideViewerComponent.update();
+
       }
     });
 
@@ -125,7 +135,16 @@ public class MenuController extends MenuBar {
       public void actionPerformed(ActionEvent actionEvent) {
         String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
         int pageNumber = Integer.parseInt(pageNumberStr);
-        presentation.setSlideNumber(pageNumber - 1);
+        if ( pageNumber <= presentation.getSize() ) {
+        	presentation.setSlideNumber(pageNumber - 1);
+            slideViewerComponent.update();
+        }
+        else {
+        	JOptionPane.showMessageDialog(parent, "Não é possível ir para o slide.",
+					"Operação inválida", JOptionPane.ERROR_MESSAGE);
+        }
+        
+
       }
     });
 

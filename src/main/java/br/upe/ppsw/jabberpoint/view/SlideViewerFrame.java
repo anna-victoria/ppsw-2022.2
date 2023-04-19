@@ -15,16 +15,18 @@ public class SlideViewerFrame extends JFrame {
 
   private static final String JABTITLE = "Jabberpoint 1.6";
 
-  public final static int WIDTH = 1200;
-  public final static int HEIGHT = 800;
+	/*
+	 * public final static int WIDTH = 1200; public final static int HEIGHT = 800;
+	 */
 
   public SlideViewerFrame(String title, Presentation presentation) {
     super(title);
 
     SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
-    presentation.setShowView(slideViewerComponent);
+	/* presentation.setShowView(slideViewerComponent); */
 
     setupWindow(slideViewerComponent, presentation);
+    slideViewerComponent.update();
   }
 
   public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
@@ -37,9 +39,9 @@ public class SlideViewerFrame extends JFrame {
     });
 
     getContentPane().add(slideViewerComponent);
-    addKeyListener(new KeyController(presentation));
-    setMenuBar(new MenuController(this, presentation));
-    setSize(new Dimension(WIDTH, HEIGHT));
+    addKeyListener(new KeyController(presentation, slideViewerComponent));
+    setMenuBar(new MenuController(this, presentation, slideViewerComponent));
+    setSize(new Dimension(1200, 800));
 
     setVisible(true);
   }

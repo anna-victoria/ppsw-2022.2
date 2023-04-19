@@ -21,8 +21,8 @@ public class DemoPresentation extends Accessor {
 	slide.appendTextItem(4, "JabberPoint execução de demonstração sem arquivos persistidos");
 	slide.appendTextItem(4, "exibição de apresentação com dados apenas em memória");
 	slide.appendTextItem(1, "Navegação:");
-	slide.appendTextItem(3, "Próximo slide: PgDn ou Enter");
-	slide.appendTextItem(3, "Slide Anterior: PgUp ou up-arrow");
+	slide.appendTextItem(3, "Próximo slide: Setinha pra direita (->) ou Enter");
+	slide.appendTextItem(3, "Slide Anterior: Setinha pra esquerda (<-) ou up-arrow");
 	slide.appendTextItem(3, "Parar: q ou Q");
 	presentation.append(slide);
 
